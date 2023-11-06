@@ -3,18 +3,23 @@ package com.example.carsharingapp.controller;
 import com.example.carsharingapp.controller.apiresponse.ApiResponse;
 import com.example.carsharingapp.dto.car.CarRequestDto;
 import com.example.carsharingapp.dto.car.CarResponseDto;
-import com.example.carsharingapp.model.Car;
 import com.example.carsharingapp.service.CarService;
-import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.Valid;
+import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
-
-import java.util.List;
 
 @RequiredArgsConstructor
 @RestController
@@ -59,7 +64,7 @@ public class CarController {
 
     @PatchMapping("/{id}")
     public ResponseEntity<Object> updateCar(@PathVariable Long id,
-                                            @RequestBody CarRequestDto carRequestDto){
+                                            @RequestBody CarRequestDto carRequestDto) {
         carService.updateById(id, carRequestDto);
         return ResponseEntity.ok().build();
     }

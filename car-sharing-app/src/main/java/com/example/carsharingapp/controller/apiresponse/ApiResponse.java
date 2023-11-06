@@ -7,7 +7,7 @@ public class ApiResponse<T> {
     private List<T> data;
 
     public ApiResponse(T data) {
-        if(data instanceof List) {
+        if (data instanceof List) {
             this.data = (List<T>) data;
         } else {
             this.data = Collections.singletonList(data);

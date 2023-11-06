@@ -2,11 +2,10 @@ package com.example.carsharingapp.service;
 
 import com.example.carsharingapp.dto.car.CarRequestDto;
 import com.example.carsharingapp.dto.car.CarResponseDto;
-
 import java.util.List;
 
 public interface CarService {
-    CarResponseDto save (CarRequestDto requestDto);
+    CarResponseDto save(CarRequestDto requestDto);
 
     CarResponseDto findById(Long id);
 
